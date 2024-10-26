@@ -1,35 +1,69 @@
-@import './base.css';
+@import 'bootstrap/dist/css/bootstrap.min.css';
+/* @import './base.css'; */
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap');
+
+:root {
+  --bs-body-font-family: 'Red Hat Display', serif;
+  --bs-body-bg: #fafbff;
+  --bs-primary-rgb: 50, 62, 200;
+  --bs-secondary-rgb: 235, 236, 250;
+  --bs-primary: rgb(var(--bs-primary-rgb));
+  --bs-secondary: rgb(var(--bs-secondary-rgb));
+  --primary-box-shadow: 0px 0px 20px 0px rgba(var(--bs-primary-rgb), 0.1);
+}
+
+html {
+  block-size: 100%;
+}
+
+body {
+  min-block-size: 100%;
+}
 
 #app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  font-weight: normal;
-}
+  min-block-size: 100dvh;
+  display: grid;
+  grid-template-rows: 4rem 1fr 8rem;
 
-a,
-.green {
-  text-decoration: none;
-  color: hsla(160, 100%, 37%, 1);
-  transition: 0.4s;
-  padding: 3px;
-}
+  & > header {
+    min-block-size: 4rem;
+  }
 
-@media (hover: hover) {
-  a:hover {
-    background-color: hsla(160, 100%, 37%, 0.2);
+  & > footer {
+    min-block-size: 8rem;
   }
 }
 
-@media (min-width: 1024px) {
-  body {
-    display: flex;
-    place-items: center;
-  }
+.shadow-primary {
+  box-shadow: var(--primary-box-shadow);
+}
 
-  #app {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 0 2rem;
-  }
+.btn-primary,
+.btn-light {
+  box-shadow: 0px 0px 10px 0px rgba(var(--bs-primary-rgb), 0.2);
+}
+
+.btn-primary {
+  --bs-btn-bg: var(--bs-primary);
+}
+
+.btn-secondary {
+  --bs-btn-color: var(--bs-primary);
+  --bs-btn-border-color: var(--bs-secondary);
+  --bs-btn-bg: var(--bs-secondary);
+}
+
+.card {
+  --bs-card-bg: #fff;
+  --bs-border-width: 0;
+  --bs-card-border-radius: var(--bs-border-radius-xl);
+  box-shadow: var(--primary-box-shadow);
+}
+
+.card-body {
+  --bs-card-title-spacer-y: 0px;
+}
+
+.card-footer {
+  --bs-card-cap-bg: var(--bs-white);
 }
