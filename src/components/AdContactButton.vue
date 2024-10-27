@@ -36,8 +36,20 @@ defineProps<{
             ></button>
           </div>
           <div class="modal-body">
-            <p>E-mail: {{ contact.email }}</p>
-            <p>Telefon: {{ contact.parsedPhoneNumbers.join(', ') }}</p>
+            <p>
+              E-mail:
+              <a :href="`mailto:${contact.email}`">{{ contact.email }}</a>
+            </p>
+            <p>
+              Telefon:
+              <a
+                v-for="phone in contact.parsedPhoneNumbers"
+                :key="phone"
+                :href="`tel:${phone}`"
+                class="me-2"
+                >{{ phone }}</a
+              >
+            </p>
           </div>
           <div class="modal-footer">
             <button

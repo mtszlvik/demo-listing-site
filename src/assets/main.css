@@ -59,7 +59,3 @@ body {
 .card-body {
   --bs-card-title-spacer-y: 0px;
 }
-
-.card-footer {
-  --bs-card-cap-bg: var(--bs-white);
-}
