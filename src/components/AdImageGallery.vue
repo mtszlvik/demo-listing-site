@@ -3,7 +3,7 @@ defineProps<{ image: string }>()
 </script>
 
 <template>
-  <div class="overflow-hidden rounded-4 d-grid image-gallery gap-3">
+  <div class="overflow-hidden rounded-4 d-none d-sm-grid image-gallery gap-3">
     <img
       :src="image"
       alt="..."

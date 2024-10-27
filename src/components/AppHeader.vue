@@ -3,11 +3,11 @@ import PageNav from '@/components/PageNav.vue'
 </script>
 
 <template>
-  <header class="bg-white shadow-primary">
-    <nav class="navbar bg-body-tertiary fixed-top d-sm-none">
-      <div class="container-fluid">
+  <header class="bg-white shadow-primary sticky-top">
+    <nav class="navbar">
+      <div class="container-xl">
         <button
-          class="navbar-toggler"
+          class="navbar-toggler d-sm-none"
           type="button"
           data-bs-toggle="offcanvas"
           data-bs-target="#offcanvasNavbar"
@@ -16,6 +16,7 @@ import PageNav from '@/components/PageNav.vue'
         >
           <span class="navbar-toggler-icon"></span>
         </button>
+        <span class="navbar-brand fw-bold">Demo listing site</span>
         <div
           class="offcanvas offcanvas-start"
           tabindex="-1"
@@ -23,6 +24,9 @@ import PageNav from '@/components/PageNav.vue'
           aria-labelledby="offcanvasNavbarLabel"
         >
           <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasNavbarLabel">
+              Demo listing site
+            </h5>
             <button
               type="button"
               class="btn-close"
@@ -38,3 +42,9 @@ import PageNav from '@/components/PageNav.vue'
     </nav>
   </header>
 </template>
+
+<style scoped>
+.navbar {
+  --bs-navbar-padding-y: 0.75rem;
+}
+</style>

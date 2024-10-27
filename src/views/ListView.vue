@@ -16,7 +16,7 @@ const { isPending, isError, data, error } = useQuery({
   <div v-else-if="data" class="d-grid gap-4">
     <AdListHeader title="Lista" :length="data.length" />
     <div class="d-grid gap-3">
-      <AdCard v-for="ad in data" :key="ad.adId" :ad="ad" />
+      <AdCard v-for="ad in data" :key="ad.adId" :ad="ad" link />
     </div>
   </div>
 </template>

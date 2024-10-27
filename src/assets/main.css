@@ -22,16 +22,8 @@ body {
 
 #app {
   min-block-size: 100dvh;
-  display: grid;
-  grid-template-rows: 4rem 1fr 8rem;
-
-  & > header {
-    min-block-size: 4rem;
-  }
-
-  & > footer {
-    min-block-size: 8rem;
-  }
+  display: flex;
+  flex-direction: column;
 }
 
 .shadow-primary {
@@ -58,6 +50,10 @@ body {
   --bs-border-width: 0;
   --bs-card-border-radius: var(--bs-border-radius-xl);
   box-shadow: var(--primary-box-shadow);
+}
+
+.form-select {
+  --bs-border-width: 1px;
 }
 
 .card-body {

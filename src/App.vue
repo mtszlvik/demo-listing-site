@@ -1,10 +1,13 @@
 <script setup lang="ts">
 import { RouterView } from 'vue-router'
-import PageHeader from './components/PageHeader.vue'
+import AppHeader from './components/AppHeader.vue'
+import AppFooter from './components/AppFooter.vue'
 </script>
 
 <template>
-  <PageHeader />
-  <RouterView />
-  <footer class="bg-white shadow-primary"></footer>
+  <AppHeader />
+  <div class="flex-fill">
+    <RouterView />
+  </div>
+  <AppFooter />
 </template>

@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
-import { CalendarDays } from 'lucide-vue-next'
 import AdCard from '@/components/AdCard.vue'
+import AdFavouriteDate from '@/components/AdFavouriteDate.vue'
 import AdListHeader from '@/components/AdListHeader.vue'
 import { getFavouriteAds } from '@/api'
 import { useQuery } from '@tanstack/vue-query'
@@ -29,20 +29,20 @@ const { isPending, isError, data, error } = useQuery({
   <div v-else-if="isError" class="error">{{ error?.message }}</div>
   <div v-else-if="data" class="d-grid gap-4">
     <AdListHeader title="Kedvencek" :length="data.length">
-      <select v-model="sort" class="form-select w-auto" aria-label="Rendezés">
+      <label for="sort" class="d-none d-sm-inline-block">Rendezés:</label>
+      <select
+        v-model="sort"
+        class="form-select w-auto shadow-primary"
+        aria-label="Rendezés"
+        id="sort"
+      >
         <option value="address">ABC</option>
         <option value="date">Dátum</option>
       </select>
     </AdListHeader>
     <div class="d-grid gap-3">
-      <AdCard v-for="ad in data" :key="ad.adId" :ad="ad">
-        <p
-          v-if="ad.favourite"
-          class="card-text d-flex align-items-center gap-1"
-        >
-          <CalendarDays :size="18" />
-          {{ new Date(ad.favourite.createdAt).toLocaleDateString('hu-HU') }}
-        </p>
+      <AdCard v-for="ad in data" :key="ad.adId" :ad="ad" link>
+        <AdFavouriteDate :favourite="ad.favourite" />
       </AdCard>
     </div>
   </div>
